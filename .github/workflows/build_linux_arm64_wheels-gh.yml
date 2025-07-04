@@ -8,22 +8,13 @@ on:
         required: true
   release:
     types: [created]
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '**/*.md'
-  pull_request:
-    branches:
-      - main
-    paths-ignore:
-      - '**/*.md'
+  
 
 
 jobs:
   build_wheels_linux:
     name: ${{ matrix.os }} py${{ matrix.python-version }}
-    runs-on: GH-Linux-ARM64
+    runs-on: gh-64a
     strategy:
       fail-fast: false
       matrix:
