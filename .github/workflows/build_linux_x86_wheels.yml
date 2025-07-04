@@ -61,9 +61,7 @@ jobs:
         with:
           fetch-depth: 0
           token: "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"
-      - name: Update submodules
-        run: |
-          git submodule update --init --recursive --jobs 4
+          submodules: recursive
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
         with:
