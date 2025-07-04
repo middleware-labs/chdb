@@ -59,8 +59,9 @@ jobs:
           git --version
       - uses: actions/checkout@v3
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-          submodules: 'recursive'
+          submodules: recursive
      
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
