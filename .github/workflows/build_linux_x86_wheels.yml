@@ -59,12 +59,13 @@ jobs:
           git --version
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          submodules: 'true'
-          
+          fetch-depth: 1
+
       - name: Update submodules
         run: |
-          git submodule update --init --recursive --jobs 4
+          git config --global user.email dev-mraj
+          git config --global user.password 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
+          git submodule update --init --recursive 
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
         with:
