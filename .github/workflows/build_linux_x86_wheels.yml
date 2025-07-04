@@ -18,13 +18,12 @@ on:
       - main
     paths-ignore:
       - '**/*.md'
-permissions:
-  contents: read
+
 
 jobs:
   build_wheels_linux:
     name: ${{ matrix.os }} py${{ matrix.python-version }}
-    runs-on: self-hosted
+    runs-on: gh-64c
     strategy:
       fail-fast: false
       matrix:
@@ -57,14 +56,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y git
           git --version
-
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Update submodules
         run: |
-          git config --global user.email dev-mraj
-          git config --global user.password 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
-          git clone https://github.com/middleware-labs/chdb
-          cd chdb
-          git submodule update --init --recursive 
+          git submodule update --init --recursive --jobs 4
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
         with:
@@ -160,4 +157,3 @@ jobs:
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-     
