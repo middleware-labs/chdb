@@ -23,7 +23,7 @@ on:
 jobs:
   build_wheels_linux:
     name: ${{ matrix.os }} py${{ matrix.python-version }}
-    runs-on: gh-64c
+    runs-on: ai-team2
     strategy:
       fail-fast: false
       matrix:
