@@ -59,7 +59,7 @@ jobs:
           git --version
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           token: "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"
           submodules: recursive
       - name: ccache
