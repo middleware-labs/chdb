@@ -9,7 +9,9 @@ on:
   release:
     types: [created]
 
-
+permissions:
+  contents: write
+  
 jobs:
   build_wheels_linux:
     name: ${{ matrix.os }} py${{ matrix.python-version }}
