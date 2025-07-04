@@ -59,10 +59,10 @@ jobs:
           git --version
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-          submodules: recursive
-     
+      - name: Update submodules
+        run: |
+          git submodule update --init --recursive --jobs 4
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
         with:
