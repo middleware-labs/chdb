@@ -23,7 +23,7 @@ on:
 jobs:
   build_wheels_linux:
     name: ${{ matrix.os }} py${{ matrix.python-version }}
-    runs-on: ai-team2
+    runs-on: self-hosted
     strategy:
       fail-fast: false
       matrix:
